@@ -46,6 +46,7 @@
   --top:calc(env(safe-area-inset-top,0px) + 12px);
 }
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 html{scroll-behavior:smooth;background:var(--paper)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-inline:clamp(16px,4vw,40px);padding-block:0;-webkit-font-smoothing:antialiased}
@@ -77,6 +78,7 @@ main{overflow-x:clip}
 .menu-panel{pointer-events:auto;margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:8px;display:flex;flex-direction:column;min-width:240px}
 .menu-panel a{text-decoration:none;padding:12px 14px;border-radius:12px;font-weight:500}
 .menu-panel a:hover{background:var(--line)}
+@media (min-width:1061px){.menu-panel{display:none !important}}
 
 /* avatar com foto */
 .av{width:34px;height:34px;border-radius:50%;position:relative;flex:none;display:inline-block}
@@ -788,7 +790,12 @@ function setLang(l,save){
 
 var mb=document.getElementById('menuBtn'), mp=document.getElementById('menuPanel');
 mb.addEventListener('click',function(){var o=mp.hidden;mp.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.textContent=o?t('menu.close'):t('menu.open')});
-mp.addEventListener('click',function(e){if(e.target.closest('a')){mp.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent=t('menu.open')}});
+function closeMenu(){if(mp.hidden)return;mp.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent=t('menu.open')}
+mp.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu()});
+document.addEventListener('click',function(e){if(!mp.hidden&&!e.target.closest('#menuPanel')&&!e.target.closest('#menuBtn'))closeMenu()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mp.hidden){closeMenu();mb.focus()}});
+window.addEventListener('resize',function(){if(window.innerWidth>1060)closeMenu()});
+window.addEventListener('hashchange',closeMenu);
 document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
 
 var start='pt';
