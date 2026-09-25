@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151515">
+<meta property="og:title" content="Marco Lima · UX/UI Designer">
+<meta property="og:description" content="Portfólio de Marco Lima, UX/UI designer em Belo Horizonte.">
+<meta property="og:image" content="assets/hero-leque.png">
+<link rel="icon" href="assets/avatar.jpg">
+<title>Portfólio Marco Lima</title>
+<meta name="description" content="Portfólio de Marco Lima, UX/UI designer em Belo Horizonte. Disponível em português e inglês.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Tema escuro único, conforme o ajuste feito no Figma */
+:root{
+  color-scheme:dark;
+  --paper:#151515;
+  --surface:#1C1C1C;
+  --surface-2:#1E1E1E;
+  --ink:#EDEDED;
+  --ink-strong:#F4F4F4;
+  --ink-2:#9EA2A8;
+  --ink-2b:#A5A9AF;
+  --ink-3:#6F7379;
+  --ink-soft:#C8C8C8;
+  --line:#2A2A2A;
+  --line-card:#333333;
+  --line-strong:#3A3A3A;
+  --line-guide:#1D1D1D;
+  --accent:#5B6BFF;
+  --ok:#17A865;
+  --btn:#EDEDED;
+  --btn-ink:#151515;
+  --glass:rgba(255,255,255,.06);
+  --glass-line:rgba(255,255,255,.14);
+  --divider:rgba(255,255,255,.15);
+  /* tons claros usados nos avatares de depoimento */
+  --tb2:#C7D3FF; --tg2:#BFE2C8; --tp2:#F5CBAE; --tl2:#D3C7F2;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.4);
+  --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  --top:calc(env(safe-area-inset-top,0px) + 12px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-inline:clamp(16px,4vw,40px);padding-block:0;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.035em;line-height:1.02;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.wrap{max-width:1297px;margin-inline:auto}
+section[id],[id].anchor{scroll-margin-top:96px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--btn);color:var(--btn-ink);padding:8px 12px;border-radius:8px;z-index:100}
+.skip:focus{left:16px}
+
+/* guias verticais */
+.guides{position:fixed;inset:0;pointer-events:none;z-index:0;display:flex;justify-content:center;padding-inline:clamp(16px,4vw,40px)}
+.guides div{width:100%;max-width:1297px;border-inline:1px solid var(--line-guide)}
+main,footer{position:relative;z-index:1}
+main{overflow-x:clip}
+
+/* header */
+.nav{position:fixed;left:0;right:0;top:var(--top);z-index:50;display:flex;flex-direction:column;align-items:center;padding-inline:16px;pointer-events:none}
+.nav-pill{pointer-events:auto;display:flex;align-items:center;gap:4px;background:var(--surface);border-radius:999px;padding:4px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;font-size:15px;padding-right:16px;letter-spacing:-.01em;color:var(--ink)}
+.links{display:flex;gap:2px}
+.links a{text-decoration:none;font-size:15px;color:var(--ink-2);padding:8px 12px;border-radius:999px;transition:color .2s,background .2s}
+.links a:hover{color:var(--ink);background:var(--line)}
+.menu-btn{display:none;border:0;background:var(--line);color:var(--ink);font:500 14px/1 var(--body);padding:12px 14px;border-radius:999px;cursor:pointer}
+.menu-panel{pointer-events:auto;margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:8px;display:flex;flex-direction:column;min-width:240px}
+.menu-panel a{text-decoration:none;padding:12px 14px;border-radius:12px;font-weight:500}
+.menu-panel a:hover{background:var(--line)}
+
+/* avatar com foto */
+.av{width:34px;height:34px;border-radius:50%;position:relative;flex:none;display:inline-block}
+.av img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.av i{position:absolute;right:-1px;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--surface)}
+.btn-primary .av i{border-color:var(--btn)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:999px;text-decoration:none;font:500 15px/1 var(--body);letter-spacing:-.01em;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--btn);color:var(--btn-ink)}
+.btn-primary.has-av{padding-left:7px}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-sm{height:40px;padding:0 16px;font-size:14px}
+.roll{display:block;height:1.2em;overflow:hidden;line-height:1.2}
+.roll span{display:block;transition:transform .42s cubic-bezier(.7,0,.2,1)}
+.btn:hover .roll span,.btn:focus-visible .roll span{transform:translateY(-100%)}
+.arrow{display:inline-block;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .arrow,.tlink:hover .arrow{transform:translate(3px,-3px)}
+
+/* hero */
+.hero{padding-top:clamp(120px,16vw,170px);padding-bottom:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:40px;align-items:center}
+.hero-txt{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px 8px 12px;font-size:15px;color:var(--ink-2)}
+.status b{color:var(--ink);font-weight:500}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(23,168,101,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(44px,6.6vw,84px);letter-spacing:-.05em;line-height:.96;font-weight:600;max-width:737px;color:var(--ink)}
+.hero h1 .dim{color:var(--ink-3)}
+.hero .sub{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2);max-width:470px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+.fan-img{display:block;width:100%;max-width:564px;justify-self:end}
+.fan-img img{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fan-img:hover img{transform:translateY(-6px) rotate(-1deg)}
+.fan{position:relative;display:block;aspect-ratio:520/400;width:100%}
+.fan .cover{position:absolute;width:74%;left:13%;top:10%;box-shadow:0 24px 48px -12px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.3);transform:var(--tf);animation:fanIn 1.1s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.35s + var(--i) * .09s);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.fan .cover:nth-child(1){--i:0;--tf:translate(-15%,9%) rotate(-9deg);background:radial-gradient(95% 85% at 71% 46%,#2C1848 0%,#21172F 45%,#151515 85%)}
+.fan .cover:nth-child(2){--i:1;--tf:translate(15%,-3%) rotate(7deg);background:radial-gradient(95% 85% at 69% 50%,#19281F 0%,#151515 80%)}
+.fan .cover:nth-child(3){--i:2;--tf:translate(0,16%) rotate(-1.5deg);background:radial-gradient(95% 85% at 67% 47%,#141937 0%,#151515 80%)}
+.fan .cover{aspect-ratio:691/434;background:none !important;border-radius:18px}
+.fan .cover img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+.fan:hover .cover:nth-child(1){--tf:translate(-19%,9%) rotate(-11deg)}
+.fan:hover .cover:nth-child(2){--tf:translate(19%,-5%) rotate(9deg)}
+@keyframes fanIn{from{transform:translate(0,22%) rotate(0);opacity:0}}
+
+.ld{animation:blurIn .8s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--d,0) * 100ms)}
+@keyframes blurIn{from{opacity:0;transform:translateY(18px);filter:blur(8px)}}
+
+/* títulos de seção */
+.sec{padding-block:128px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px;align-items:end;margin-bottom:48px}
+.sec-head h2{font-size:clamp(36px,5vw,60px);color:var(--ink)}
+.sec-head h2 .dim{color:var(--ink-3)}
+.sec-head p{color:var(--ink-2)}
+.eyebrow{color:var(--ink-3);display:block;margin-bottom:16px}
+
+/* cards de projeto */
+.stack{display:flex;flex-direction:column;gap:28px}
+.proj{position:sticky;top:calc(84px + var(--n) * 14px);background:radial-gradient(75% 110% at 67% 47%,var(--glow) 0%,#151515 75%),#151515;border-radius:28px;padding:32px;display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:40px;min-height:500px;border:1px solid var(--line-card)}
+.proj-txt{display:flex;flex-direction:column;gap:16px;padding:4px 0}
+.proj-meta{display:flex;justify-content:space-between;color:var(--ink-2)}
+.proj h3{font-size:clamp(34px,4vw,48px);margin-top:auto;color:var(--ink-strong)}
+.proj .one{font-size:19px;line-height:1.55;color:var(--ink-2b);max-width:380px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.tags li{font-size:13px;line-height:1.3;padding:4px 12px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-line);color:var(--ink)}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--divider);padding-top:16px}
+.metrics b{display:block;white-space:nowrap;font:600 clamp(30px,3.2vw,42px)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink-strong)}
+.metrics span{font-size:15px;color:var(--ink-2b)}
+.proj.soon .proj-cover{position:relative;cursor:default}
+.proj.soon .proj-cover img{filter:saturate(.7) brightness(.72)}
+.proj.soon .proj-cover:hover img{transform:none}
+.soon-over{position:absolute;left:50%;top:50%;translate:-50% -50%;background:rgba(21,21,21,.78);border:1px solid var(--glass-line);color:var(--ink);font:600 clamp(18px,2vw,24px)/1 var(--display);letter-spacing:-.02em;padding:14px 22px;border-radius:999px;backdrop-filter:blur(6px);white-space:nowrap}
+.soon-tag{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;border-radius:999px;border:1px dashed var(--glass-line);color:var(--ink-2);font:500 15px/1 var(--body)}
+.soon-tag i{width:8px;height:8px;border-radius:50%;background:#E8B04A}
+.proj-cover{display:block;border-radius:18px;overflow:hidden;text-decoration:none;align-self:stretch}
+.proj-cover img{width:100%;height:100%;min-height:320px;object-fit:cover;object-position:center top;border-radius:18px;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.proj-cover:hover img{transform:scale(1.02)}
+
+/* mockups do leque (telas desenhadas) */
+.cover{container-type:inline-size;position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden}
+.mk{position:absolute;font-family:var(--body);color:#15171A;letter-spacing:-.01em}
+.mk small{display:block;color:#6B7079;font-size:1.7cqw}
+.mk b{font-weight:600}
+.mk-phone{left:50%;top:8cqw;width:38cqw;translate:-50% 0;aspect-ratio:9/18.5;background:#101216;border-radius:6cqw;padding:1.1cqw;box-shadow:0 3cqw 7cqw rgba(0,0,0,.22)}
+.scr{height:100%;background:#fff;border-radius:5cqw;padding:3.4cqw 2.8cqw;display:flex;flex-direction:column;gap:1.5cqw;font-size:1.95cqw;overflow:hidden}
+.ph-top{display:flex;justify-content:space-between;align-items:center;font-size:2.4cqw}
+.ph-top b{font-weight:700;letter-spacing:-.04em}
+.ph-av{width:4.4cqw;height:4.4cqw;border-radius:50%;background:#2E3BFF;color:#fff;display:grid;place-items:center;font-size:1.5cqw;font-weight:600}
+.ph-bal{font:600 4.6cqw/1 var(--display);letter-spacing:-.05em}
+.ph-bal span{color:#9AA0A8}
+.ph-act{display:flex;gap:1cqw;margin-bottom:.6cqw}
+.ph-act span{flex:1;text-align:center;padding:1.3cqw 0;border-radius:2cqw;background:#F1F2F4;font-size:1.7cqw;font-weight:500}
+.ph-act .on{background:#15171A;color:#fff}
+.ph-row{display:grid;grid-template-columns:4.4cqw minmax(0,1fr) auto;gap:1.3cqw;align-items:center;padding:1.2cqw 0;border-top:1px solid #EEF0F2}
+.ph-row i{width:4.4cqw;height:4.4cqw;border-radius:1.4cqw;display:block}
+.ph-row div{min-width:0}
+.ph-row b,.ph-row small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.ph-row small{font-size:1.45cqw}
+.ph-row em{font-style:normal;font-weight:600;font-size:1.8cqw;font-variant-numeric:tabular-nums}
+.mk-toast{right:5cqw;top:44cqw;background:#fff;border-radius:3cqw;padding:2cqw 2.6cqw;display:flex;gap:1.8cqw;align-items:center;box-shadow:0 2cqw 5cqw rgba(0,0,0,.16);font-size:2cqw}
+.mk-toast .ok{width:4.6cqw;height:4.6cqw;border-radius:50%;background:#17A865;color:#fff;display:grid;place-items:center;font-size:2.4cqw;flex:none}
+.mk-win{left:7cqw;top:8cqw;width:96cqw;height:82cqw;background:#fff;border-radius:2.4cqw;box-shadow:0 3cqw 7cqw rgba(0,0,0,.16);overflow:hidden;font-size:1.8cqw}
+.win-bar{height:5cqw;display:flex;align-items:center;gap:.9cqw;padding-inline:2cqw;background:#F3F4F2;border-bottom:1px solid #E6E8E4}
+.win-bar i{width:1.4cqw;height:1.4cqw;border-radius:50%;background:#D2D5CF}
+.win-bar span{margin-left:3cqw;background:#fff;border-radius:1cqw;padding:.5cqw 2cqw;font-size:1.4cqw;color:#8A8F97}
+.win-body{display:grid;grid-template-columns:17cqw 1fr;height:calc(100% - 5cqw)}
+.win-body aside{border-right:1px solid #EEF0EC;padding:2.4cqw 2cqw;display:flex;flex-direction:column;gap:1.4cqw;font-size:1.7cqw;color:#6B7079}
+.win-body aside b{color:#15171A;font-size:2.4cqw;letter-spacing:-.04em;margin-bottom:1cqw}
+.win-body aside .on{color:#15171A;background:#E6F3EA;border-radius:1cqw;padding:.8cqw 1.2cqw;margin-inline:-1.2cqw;font-weight:500}
+.cal{padding:2.4cqw}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2cqw;gap:2cqw}
+.cal-head b{font-size:2.2cqw;letter-spacing:-.03em}
+.kbd{font-family:var(--mono);font-size:1.5cqw;border:1px solid #D9DCD6;border-radius:1cqw;padding:.6cqw 1.4cqw;color:#15171A;white-space:nowrap}
+.cal-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw}
+.col{display:flex;flex-direction:column;gap:1cqw}
+.col small{font-size:1.6cqw;color:#15171A;font-weight:500;padding-bottom:.6cqw;border-bottom:1px solid #EEF0EC}
+.bk{display:block;border-radius:1.2cqw;background:#EDEFEA;font-style:normal;font-size:1.45cqw;padding:1cqw 1.2cqw;color:#3C4148}
+.bk.a{background:#CFE7D6}.bk.b{background:#E2E4F8}.bk.c{background:#F7E3CF}
+.bk.free{background:#17A865;color:#fff;font-weight:600;box-shadow:0 0 0 .5cqw rgba(23,168,101,.25)}
+.mk-co{left:calc(1cqw + var(--i) * 32.6cqw);top:calc(8.7cqw + var(--i) * 7.6cqw);width:36cqw;background:#fff;border-radius:3.3cqw;padding:2.9cqw;display:flex;flex-direction:column;gap:1.6cqw;box-shadow:0 2cqw 6cqw rgba(0,0,0,.14);font-size:1.8cqw}
+.mk-co .st{display:flex;align-items:center;gap:1cqw;font-size:1.75cqw;font-weight:600;color:#6B4FD8}
+.mk-co .st i{width:3.3cqw;height:3.3cqw;border-radius:50%;background:#6B4FD8;color:#fff;display:grid;place-items:center;font-style:normal;font-size:1.6cqw}
+.mk-co > b{font-size:3cqw;letter-spacing:-.03em}
+.co-row{display:grid;grid-template-columns:4.4cqw minmax(0,1fr) auto;gap:1.1cqw;align-items:center;font-size:1.7cqw}
+.co-row i{width:4.4cqw;height:4.4cqw;border-radius:1.1cqw;display:block}
+.co-row em{font-style:normal;font-variant-numeric:tabular-nums}
+.co-tot{display:flex;justify-content:space-between;border-top:1px solid #EEF0F2;padding-top:1.4cqw;font-weight:600;font-size:1.95cqw}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:1.1cqw}
+.slots span{border:1px solid #E1E3E6;border-radius:1.4cqw;padding:1.2cqw;font-size:1.6cqw;text-align:center}
+.slots .on{border-color:#6B4FD8;background:#F1EDFD;color:#3D2A8F;font-weight:600}
+.pay{border:1px solid #E1E3E6;border-radius:1.4cqw;padding:1.4cqw 1.6cqw;font-size:1.75cqw;display:flex;justify-content:space-between}
+.pay.on{border-color:#6B4FD8}
+.co-btn{background:#15171A;color:#fff;border-radius:99px;text-align:center;padding:1.8cqw;font-weight:600;font-size:1.95cqw}
+
+/* depoimento em destaque */
+.bigquote{padding-block:128px 0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:24px;margin:0}
+.bigquote .qm{font:700 120px/.8 var(--display);letter-spacing:-.065em;color:var(--accent)}
+.bigquote blockquote{margin:0;font:500 clamp(26px,3.4vw,40px)/1.18 var(--display);letter-spacing:-.03em;color:var(--ink)}
+.bigquote figcaption{margin-top:24px;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-2)}
+.bigquote figcaption b{color:var(--ink);font-weight:500}
+.fa{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:500 15px/1 var(--body);letter-spacing:-.01em;color:#15171A;flex:none}
+
+/* depoimentos */
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tgrid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sec-head p a{color:var(--ink);text-underline-offset:3px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:24px}
+.tcard p{font-size:17px;color:var(--ink)}
+.tcard footer{margin-top:auto;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-2)}
+.tcard footer b{display:block;color:var(--ink);font-weight:500}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,650px);gap:64px}
+.faq h2{font-size:clamp(36px,5vw,60px);color:var(--ink)}
+.faq-list{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;font:500 19px/1.35 var(--display);letter-spacing:-.02em;position:relative;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:50%;width:16px;height:16px;margin-top:-8px;background:linear-gradient(var(--ink),var(--ink)) center/16px 1.5px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1.5px 16px no-repeat;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 44px 20px 0;color:var(--ink-2);font-size:17px}
+
+/* contato */
+.contact{margin-top:128px;background:var(--surface-2);border:1px solid var(--line);color:#fff;border-radius:32px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:32px;align-items:end}
+.contact h2{font-size:clamp(38px,5.4vw,68px);letter-spacing:-.05em;color:#fff}
+.contact-side{display:flex;flex-direction:column;gap:16px}
+.contact-side p{color:var(--ink-soft);font-size:17px}
+.mail{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line-strong);border-radius:16px;padding:8px 8px 8px 16px;flex-wrap:wrap}
+.mail code{font:400 15px/1.5 var(--mono);color:#fff;user-select:all;word-break:break-all}
+.mail button{background:var(--btn);color:var(--btn-ink);border:0;border-radius:10px;height:42px;padding:0 16px;font:500 15px/1 var(--body);cursor:pointer}
+
+/* rodapé */
+.foot{padding-block:48px 28px}
+.foot .giant{font:700 clamp(52px,16.5vw,236px)/.82 var(--display);letter-spacing:-.065em;white-space:nowrap;margin-bottom:28px;color:var(--ink)}
+.foot-row{display:flex;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;color:var(--ink-2);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+.foot-row a{text-decoration:none}
+.foot-row a:hover{color:var(--ink)}
+.note{font-size:12.5px;color:var(--ink-3);margin-top:28px}
+
+/* página de case */
+.case{padding-top:clamp(112px,14vw,148px)}
+.back{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--ink-2);font-size:15px;margin-bottom:36px}
+.back:hover{color:var(--ink)}
+.case-head{display:flex;flex-direction:column;gap:20px;max-width:900px}
+.case-head .mono{color:var(--ink-3)}
+.case-head h1{font-size:clamp(46px,7vw,92px);letter-spacing:-.055em;line-height:.94;color:var(--ink)}
+.case-head .summary{font-size:clamp(19px,2vw,22px);line-height:1.45;color:var(--ink-2);max-width:56ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:40px 0 20px;border-top:1px solid var(--line);padding:0}
+.facts div{padding:16px 16px 0 0}
+.facts dt{color:var(--ink-3);margin-bottom:6px}
+.facts dd{margin:0;font-weight:500;color:var(--ink)}
+.case-cover{margin-top:36px;border-radius:28px;overflow:hidden;border:1px solid var(--line-card)}
+.case-cover img{width:100%;height:auto;aspect-ratio:691/434;object-fit:cover}
+.csec{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;padding-block:64px 0}
+.csec > h2{font-size:28px;position:sticky;top:110px;align-self:start;color:var(--ink)}
+.cbody{display:flex;flex-direction:column;gap:22px;max-width:720px}
+.cbody p{font-size:19px;line-height:1.6}
+.insights{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.insights li{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px 16px 50px;position:relative;font-size:17px}
+.insights li::before{content:"";position:absolute;left:20px;top:21px;width:14px;height:14px;border-radius:50%;border:2px solid var(--accent)}
+.decisions{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.dec{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:20px 0;border-bottom:1px solid var(--line)}
+.dec .mono{color:var(--accent);padding-top:5px}
+.dec b{font:600 22px/1.2 var(--display);letter-spacing:-.025em;display:block;margin-bottom:6px;color:var(--ink)}
+.dec p{font-size:17px;color:var(--ink-2)}
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.res{background:radial-gradient(90% 120% at 80% 0%,var(--glow) 0%,var(--surface) 75%);border:1px solid var(--line-card);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:40px;min-height:190px}
+.res b{font:600 clamp(40px,5vw,60px)/1 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-strong)}
+.res span{margin-top:auto;font-size:15px;color:var(--ink-2b)}
+.flow{display:flex;flex-direction:column;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px}
+.flow-row{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:start}
+.flow-row .mono{padding-top:9px;color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:8px 6px;align-items:center}
+.chips span{font-size:15px;padding:8px 12px;border-radius:12px;background:var(--paper);border:1px solid var(--line);color:var(--ink-2)}
+.chips.after span{background:var(--glow);border-color:var(--glass-line);font-weight:500;color:var(--ink)}
+.chips em{font-style:normal;color:var(--ink-3)}
+.cquote{margin:0;border-left:3px solid var(--accent);padding:4px 0 4px 24px}
+.cquote p{font:500 clamp(22px,2.4vw,28px)/1.3 var(--display);letter-spacing:-.025em;color:var(--ink)}
+.cquote cite{display:block;margin-top:12px;font-style:normal;font-size:15px;color:var(--ink-2)}
+.next{margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:24px;align-items:center;background:radial-gradient(75% 110% at 75% 50%,var(--glow) 0%,#151515 75%),#151515;border:1px solid var(--line-card);border-radius:28px;padding:clamp(22px,3vw,32px);text-decoration:none}
+.next .mono{color:var(--ink-2)}
+.next h3{font-size:clamp(34px,4.6vw,56px);margin:10px 0;color:var(--ink-strong)}
+.next p{color:var(--ink-2b)}
+.next img{width:100%;border-radius:18px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.next:hover img{transform:rotate(-2deg) scale(1.02)}
+
+/* seletor de idioma */
+.lang{display:flex;gap:2px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px;margin-inline:2px}
+.lang button{border:0;background:transparent;color:var(--ink-2);font:500 12px/1 var(--mono);letter-spacing:.05em;padding:10px 10px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--line);color:var(--ink)}
+
+/* experiência */
+.exp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,760px);gap:64px;align-items:start}
+.exp-intro{position:sticky;top:110px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.exp-intro .eyebrow{margin-bottom:0}
+.exp-intro h2{font-size:clamp(36px,5vw,60px);color:var(--ink)}
+.exp-intro h2 .dim,.faq h2 .dim{color:var(--ink-3)}
+.exp-intro p{color:var(--ink-2);max-width:40ch}
+.tlink{display:inline-flex;gap:6px;align-items:center;font-weight:500;font-size:15px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:3px}
+.tlink:hover{border-color:var(--ink)}
+.jobs{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:150px minmax(0,1fr) 56px;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.job .when{color:var(--ink-3);padding-top:10px}
+.now{display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+.now i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(23,168,101,.18)}
+.job h3{font-size:clamp(26px,3vw,32px);color:var(--ink-strong)}
+.job .role{color:var(--ink-2);font-size:15px;margin-top:6px}
+.job .desc{color:var(--ink);font-size:17px;margin-top:14px;max-width:56ch}
+.job .tags{margin-top:16px}
+.logo{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font:600 18px/1 var(--display);letter-spacing:-.03em;color:var(--ink);background:radial-gradient(120% 120% at 30% 20%,var(--glow) 0%,var(--surface) 80%);border:1px solid var(--glass-line)}
+.edu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,.8fr);gap:16px;margin-top:48px}
+.edu-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.edu-card > .mono{color:var(--ink-3);margin-bottom:8px}
+.edu-card > b{font:600 20px/1.25 var(--display);letter-spacing:-.02em;color:var(--ink)}
+.muted{color:var(--ink-2);font-size:15px}
+.certs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.certs li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--line)}
+.certs li:first-child{border-top:0;padding-top:0}
+.certs b{font-weight:500;font-size:15px;color:var(--ink)}
+.certs .muted{white-space:nowrap;font-size:14px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+
+/* case: etapas do processo e galeria antes/depois */
+.psteps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;max-width:720px}
+.psteps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:grid;grid-template-columns:32px 1fr;gap:8px}
+.psteps li::before{content:counter(s,decimal-leading-zero);font:500 12px/1.9 var(--mono);color:var(--accent)}
+.psteps b{display:block;font:600 18px/1.3 var(--display);letter-spacing:-.02em;color:var(--ink);margin-bottom:4px}
+.psteps span{font-size:15px;color:var(--ink-2)}
+.cbody.wide{max-width:none}
+.rnote{font-size:14px !important;line-height:1.5 !important;color:var(--ink-3);max-width:80ch}
+.shots{padding-top:64px}
+.shots > h2{font-size:28px;color:var(--ink);margin-bottom:24px}
+.shots-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.shots figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.shot{display:block;background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--line-card)}
+.shot img{width:100%;height:auto;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.shot:hover img{transform:scale(1.015)}
+.shots figcaption{font-size:15px;color:var(--ink-2);max-width:80ch}
+.shots .hint{color:var(--ink-3)}
+
+/* reveal por rolagem só onde o navegador suporta; sem suporte o conteúdo fica visível */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 30%}
+  }
+}
+@keyframes rv{from{opacity:0;transform:translateY(32px)}}
+@media (prefers-reduced-motion:reduce){
+  .shot img{transition:none}
+  .ld,.fan .cover,.pulse{animation:none}
+  .roll span,.btn,.cover,.arrow,.proj-cover img,.next img{transition:none}
+}
+
+/* responsivo */
+@media (max-width:1060px){
+  .links{display:none}
+  .menu-btn{display:block}
+  .hero{grid-template-columns:1fr}
+  .fan{max-width:560px;margin-inline:auto}
+  .fan-img{justify-self:center}
+  .sec-head,.faq,.contact{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr;min-height:0}
+  .proj-cover img{min-height:0;height:auto;aspect-ratio:691/434}
+  .tgrid,.tgrid.two{grid-template-columns:1fr}
+  .csec{grid-template-columns:1fr;padding-top:52px}
+  .csec > h2{position:static}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .next{grid-template-columns:1fr}
+  .exp{grid-template-columns:1fr;gap:32px}
+  .shots-grid{grid-template-columns:1fr}
+  .exp-intro{position:static}
+  .edu{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .brand span:last-child{display:none}
+  .brand{padding-right:4px}
+  .proj{top:calc(76px + var(--n) * 10px);border-radius:22px;padding:20px}
+  .proj .metrics b{font-size:30px}
+  .results{grid-template-columns:1fr}
+  .res{min-height:0}
+  .flow-row{grid-template-columns:1fr;gap:6px}
+  .flow-row .mono{padding-top:0}
+  .bigquote{grid-template-columns:1fr;gap:0}
+  .bigquote .qm{font-size:80px;height:48px}
+  .job{grid-template-columns:1fr;gap:10px}
+  .job .when{padding-top:0}
+  .logo{display:none}
+  .psteps{grid-template-columns:1fr}
+  .certs li{flex-direction:column;gap:2px}
+}
+@media (max-width:440px){
+  .nav-cta{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Pular para o conteúdo</a>
+<div class="guides" aria-hidden="true"><div></div></div>
+
+<header class="nav">
+  <div class="nav-pill">
+    <a class="brand" href="#inicio"><span class="av"><img src="assets/avatar.jpg" alt=""><i></i></span><span>Marco Lima</span></a>
+    <nav class="links" data-i18n-aria="nav.label" aria-label="Principal">
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#experiencia" data-i18n="nav.exp">Experiência</a>
+      <a href="#depoimentos" data-i18n="nav.recs">Recomendações</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" data-i18n-aria="lang.label" aria-label="Idioma">
+      <button type="button" data-lang="pt" aria-pressed="true" lang="pt-BR" title="Português">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPanel" data-i18n="menu.open">Menu</button>
+    <a class="btn btn-primary btn-sm nav-cta" href="#contato"><span class="roll"><span data-i18n="cta.talk">Vamos conversar</span><span aria-hidden="true" data-i18n="cta.talk">Vamos conversar</span></span></a>
+  </div>
+  <nav class="menu-panel" id="menuPanel" aria-label="Menu" hidden>
+    <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+    <a href="#experiencia" data-i18n="nav.exp">Experiência</a>
+    <a href="#depoimentos" data-i18n="nav.recs">Recomendações</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contato" data-i18n="nav.contact">Contato</a>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+  <div id="home">
+
+    <section class="hero" id="inicio">
+      <div class="hero-txt">
+        <span class="status ld" style="--d:0"><span class="pulse"></span><span data-i18n-html="hero.badge"><b>UX/UI designer</b> na Luby · Belo Horizonte</span></span>
+        <h1 class="ld" style="--d:1" data-i18n-html="hero.title"><span class="dim">Design de produto</span> para sistemas cheios de regras.</h1>
+        <p class="sub ld" style="--d:2" data-i18n="hero.sub">Sou Marco Lima, UX/UI designer em Belo Horizonte, hoje na Luby. Cuido do processo inteiro, da pesquisa com usuários ao protótipo no Figma, e mentoro quem está começando em UX.</p>
+        <div class="cta-row ld" style="--d:3">
+          <a class="btn btn-primary has-av" href="#contato"><span class="av"><img src="assets/avatar.jpg" alt=""><i></i></span><span class="roll"><span data-i18n="hero.cta1">Agendar uma conversa</span><span aria-hidden="true" data-i18n="hero.cta1">Agendar uma conversa</span></span></a>
+          <a class="btn btn-ghost" href="#projetos"><span class="roll"><span data-i18n="hero.cta2">Ver projetos</span><span aria-hidden="true" data-i18n="hero.cta2">Ver projetos</span></span></a>
+        </div>
+      </div>
+      <a class="fan-img ld" style="--d:2" href="#projetos" data-i18n-aria="hero.cta2" aria-label="Ver projetos"><img src="assets/hero-leque.png" alt="" width="564" height="451"></a>
+    </section>
+
+    <section class="sec" id="projetos">
+      <div class="sec-head">
+        <div><span class="eyebrow mono" data-i18n="proj.eyebrow">Projetos selecionados · 3 cases</span><h2 class="rv" data-i18n-html="proj.title">Do problema <span class="dim">à entrega.</span></h2></div>
+        <p class="rv" data-i18n="proj.lead">Cada case mostra o contexto, o processo e as decisões de design por trás do resultado.</p>
+      </div>
+      <div class="stack" id="stack"></div>
+    </section>
+
+    <section class="sec" id="experiencia">
+      <div class="exp">
+        <div class="exp-intro">
+          <span class="eyebrow mono" data-i18n="exp.eyebrow">Experiência</span>
+          <h2 class="rv" data-i18n-html="exp.title">Onde já <span class="dim">trabalhei.</span></h2>
+          <p data-i18n="exp.lead">Empresas e programas de que fiz parte, do mais recente ao mais antigo.</p>
+          <a class="tlink" href="https://www.linkedin.com/in/marcot-lima/" target="_blank" rel="noopener"><span data-i18n="exp.linkedin">Histórico completo no LinkedIn</span> <span class="arrow">↗</span></a>
+        </div>
+        <ol class="jobs" id="jobs"></ol>
+      </div>
+      <div class="edu" id="edu"></div>
+    </section>
+
+    <figure class="bigquote" data-i18n-aria="quote.label" aria-label="Depoimento em destaque">
+      <span class="qm" aria-hidden="true">“</span>
+      <div>
+        <blockquote class="rv" data-i18n="quote.text">Com sua energia e dedicação alinhados a seu alento, sempre foi um profissional focado em proporcionar a melhor experiência, seja ela para as pessoas usuárias ou para seu próprio time.</blockquote>
+        <figcaption><span class="fa" style="background:var(--tb2)">EC</span><span><b>Ernesto Cangussu</b><br><span data-i18n="quote.role">Liderou o Marco diretamente · Senior Product Designer</span></span></figcaption>
+      </div>
+    </figure>
+
+    <section class="sec" id="depoimentos">
+      <div class="sec-head">
+        <div><span class="eyebrow mono" data-i18n="recs.eyebrow">Recomendações · LinkedIn</span><h2 class="rv" data-i18n-html="recs.title">O que dizem <span class="dim">os colegas.</span></h2></div>
+        <p class="rv"><span data-i18n="recs.lead">Trechos de recomendações publicadas no meu perfil.</span> <a href="https://www.linkedin.com/in/marcot-lima/" target="_blank" rel="noopener" data-i18n="recs.link">Ver todas no LinkedIn ↗</a></p>
+      </div>
+      <div class="tgrid two">
+        <article class="tcard rv"><p data-i18n="recs.mk">Tive a oportunidade de trabalhar com o Marco em alguns projetos da Luby Software. Ele é uma pessoa muito dedicada, estudioso e que conquista as pessoas com seu carisma e colaboração.</p><footer><span class="fa" style="background:var(--tg2)">MK</span><span><b>Michelle Kato</b><span data-i18n="recs.mkRole">Colega na Luby</span></span></footer></article>
+        <article class="tcard rv"><p data-i18n="recs.af">Falar sobre o Marco durante o tempo que trabalhamos juntos é algo que me traz muita clareza. É muito difícil imaginar um cenário em que ele atue que a equipe não se envolva e se mantém engajada.</p><footer><span class="fa" style="background:var(--tb2)">EC</span><span><b>Ernesto Cangussu</b><span data-i18n="recs.afRole">Liderou o Marco diretamente</span></span></footer></article>
+      </div>
+    </section>
+
+    <section class="sec" id="faq">
+      <div class="faq">
+        <div><span class="eyebrow mono" data-i18n="faq.eyebrow">Perguntas frequentes</span><h2 class="rv" data-i18n-html="faq.title">Antes de <span class="dim">conversarmos.</span></h2></div>
+        <div class="faq-list">
+          <details open><summary data-i18n="faq.q1">Onde você trabalha hoje?</summary><p data-i18n="faq.a1">Sou UX/UI designer na Luby, em Belo Horizonte. Fora dela, topo conversar sobre projetos pontuais e mentoria em UX.</p></details>
+          <details><summary data-i18n="faq.q2">Quanto custa um projeto?</summary><p data-i18n="faq.a2">Depende do escopo. Depois de uma conversa de 30 minutos, envio uma proposta com fases, prazo e valor fechado.</p></details>
+          <details><summary data-i18n="faq.q3">Você faz pesquisa ou só interface?</summary><p data-i18n="faq.a3">O processo inteiro: pesquisa, fluxos, interface, testes com usuários e acompanhamento da implementação.</p></details>
+          <details><summary data-i18n="faq.q4">Trabalha com o design system que já temos?</summary><p data-i18n="faq.a4">Sim. Na maioria dos projetos eu estendo o sistema existente em vez de criar outro, e documento os componentes novos.</p></details>
+          <details><summary data-i18n="faq.q5">Você faz mentoria?</summary><p data-i18n="faq.a5">Sim. Já fui tutor no Camp ioasys e acompanho designers do começo dos estudos até a primeira experiência profissional.</p></details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="caseView" hidden></div>
+
+  <section class="contact" id="contato">
+    <h2 data-i18n="contact.title">Tem um produto complicado? Vamos simplificar.</h2>
+    <div class="contact-side">
+      <p data-i18n="contact.text">Conte em poucas linhas o que o seu time está construindo. Respondo em até dois dias úteis com horários para uma conversa de 30 minutos.</p>
+      <div class="mail"><code id="mail">marco.lima0305@gmail.com</code><button type="button" id="copyBtn" data-i18n="contact.copy">Copiar e-mail</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <div class="giant" aria-hidden="true">Marco Lima</div>
+  <div class="foot-row">
+    <span><span data-i18n="foot.where">UX/UI designer · Belo Horizonte,</span> <span id="clock">--:--</span> (GMT−3)</span>
+    <span class="foot-links"><a href="#projetos" data-i18n="nav.projects">Projetos</a><a href="#experiencia" data-i18n="nav.exp">Experiência</a><a href="#depoimentos" data-i18n="nav.recs">Recomendações</a><a href="https://www.linkedin.com/in/marcot-lima/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="#inicio" data-i18n="foot.top">Voltar ao topo ↑</a></span>
+  </div>
+  <p class="note" data-i18n="foot.note">O case do Veres está em construção e entra aqui em breve.</p>
+</footer>
+
+<script>
+(function(){
+// ---------- textos da interface ----------
+var T={
+pt:{
+ "doc.title":"Portfólio Marco Lima","skip":"Pular para o conteúdo","nav.label":"Principal","nav.projects":"Projetos","nav.exp":"Experiência","nav.recs":"Recomendações","nav.contact":"Contato","lang.label":"Idioma",
+ "menu.open":"Menu","menu.close":"Fechar","cta.talk":"Vamos conversar",
+ "hero.badge":"<b>UX/UI designer</b> na Luby · Belo Horizonte",
+ "hero.title":"<span class=\"dim\">Design de produto</span> para sistemas cheios de regras.",
+ "hero.sub":"Sou Marco Lima, UX/UI designer em Belo Horizonte, hoje na Luby. Cuido do processo inteiro, da pesquisa com usuários ao protótipo no Figma, e mentoro quem está começando em UX.",
+ "hero.cta1":"Agendar uma conversa","hero.cta2":"Ver projetos",
+ "proj.eyebrow":"Projetos selecionados · 3 cases","proj.title":"Do problema <span class=\"dim\">à entrega.</span>",
+ "proj.lead":"Cada case mostra o contexto, o processo e as decisões de design por trás do resultado.",
+ "proj.view":"Ver case","proj.soon":"Em breve",
+ "exp.eyebrow":"Experiência","exp.title":"Onde já <span class=\"dim\">trabalhei.</span>","exp.lead":"Empresas e programas de que fiz parte, do mais recente ao mais antigo.","exp.linkedin":"Histórico completo no LinkedIn",
+ "exp.now":"Atual","exp.edu":"Formação","exp.certs":"Certificados","exp.langs":"Idiomas",
+ "quote.label":"Depoimento em destaque",
+ "quote.text":"Com sua energia e dedicação alinhados a seu alento, sempre foi um profissional focado em proporcionar a melhor experiência, seja ela para as pessoas usuárias ou para seu próprio time.",
+ "quote.role":"Liderou o Marco diretamente · Senior Product Designer",
+ "recs.eyebrow":"Recomendações · LinkedIn","recs.title":"O que dizem <span class=\"dim\">os colegas.</span>","recs.lead":"Trechos de recomendações publicadas no meu perfil.","recs.link":"Ver todas no LinkedIn ↗",
+ "recs.mk":"Tive a oportunidade de trabalhar com o Marco em alguns projetos da Luby Software. Ele é uma pessoa muito dedicada, estudioso e que conquista as pessoas com seu carisma e colaboração.","recs.mkRole":"Colega na Luby",
+ "recs.af":"Falar sobre o Marco durante o tempo que trabalhamos juntos é algo que me traz muita clareza. É muito difícil imaginar um cenário em que ele atue que a equipe não se envolva e se mantém engajada.","recs.afRole":"Liderou o Marco diretamente",
+ "faq.eyebrow":"Perguntas frequentes","faq.title":"Antes de <span class=\"dim\">conversarmos.</span>",
+ "faq.q1":"Onde você trabalha hoje?","faq.a1":"Sou UX/UI designer na Luby, em Belo Horizonte. Fora dela, topo conversar sobre projetos pontuais e mentoria em UX.",
+ "faq.q2":"Quanto custa um projeto?","faq.a2":"Depende do escopo. Depois de uma conversa de 30 minutos, envio uma proposta com fases, prazo e valor fechado.",
+ "faq.q3":"Você faz pesquisa ou só interface?","faq.a3":"O processo inteiro: pesquisa, fluxos, interface, testes com usuários e acompanhamento da implementação.",
+ "faq.q4":"Trabalha com o design system que já temos?","faq.a4":"Sim. Na maioria dos projetos eu estendo o sistema existente em vez de criar outro, e documento os componentes novos.",
+ "faq.q5":"Você faz mentoria?","faq.a5":"Sim. Já fui tutor no Camp ioasys e acompanho designers do começo dos estudos até a primeira experiência profissional.",
+ "contact.title":"Tem um produto complicado? Vamos simplificar.","contact.text":"Conte em poucas linhas o que o seu time está construindo. Respondo em até dois dias úteis com horários para uma conversa de 30 minutos.",
+ "contact.copy":"Copiar e-mail","contact.copied":"Copiado","contact.selected":"Selecionado, use Ctrl+C",
+ "foot.where":"UX/UI designer · Belo Horizonte,","foot.top":"Voltar ao topo ↑",
+ "foot.note":"O case do Veres está em construção e entra aqui em breve.",
+ "case.back":"← Todos os projetos","case.problem":"O problema","case.research":"O que a pesquisa mostrou","case.decisions":"Decisões de design","case.flow":"O fluxo, antes e depois","case.before":"Antes","case.after":"Depois","case.results":"Resultados","case.voice":"Na voz de quem usa","case.learn":"O que eu faria diferente","case.next":"Próximo case →","case.img":"Tela do projeto","case.process":"Como eu trabalhei","case.gallery":"Antes e depois","case.board":"Quadro da pesquisa","case.ds":"Design system no Storybook","case.final":"Resultado final","case.zoom":"Clique para ver em tamanho real."
+},
+en:{
+ "doc.title":"Marco Lima Portfolio","skip":"Skip to content","nav.label":"Main","nav.projects":"Work","nav.exp":"Experience","nav.recs":"Recommendations","nav.contact":"Contact","lang.label":"Language",
+ "menu.open":"Menu","menu.close":"Close","cta.talk":"Let's talk",
+ "hero.badge":"<b>UX/UI designer</b> at Luby · Belo Horizonte, Brazil",
+ "hero.title":"<span class=\"dim\">Product design</span> for systems full of rules.",
+ "hero.sub":"I'm Marco Lima, a UX/UI designer based in Belo Horizonte, Brazil, currently at Luby. I handle the whole process, from user research to Figma prototypes, and I mentor people starting out in UX.",
+ "hero.cta1":"Book a call","hero.cta2":"See my work",
+ "proj.eyebrow":"Selected work · 3 case studies","proj.title":"From problem <span class=\"dim\">to delivery.</span>",
+ "proj.lead":"Each case study shows the context, the process and the design decisions behind the result.",
+ "proj.view":"View case study","proj.soon":"Coming soon",
+ "exp.eyebrow":"Experience","exp.title":"Where I've <span class=\"dim\">worked.</span>","exp.lead":"Companies and programs I've been part of, from most recent to oldest.","exp.linkedin":"Full history on LinkedIn",
+ "exp.now":"Current","exp.edu":"Education","exp.certs":"Certificates","exp.langs":"Languages",
+ "quote.label":"Featured recommendation",
+ "quote.text":"With his energy and dedication, he has always been a professional focused on delivering the best experience, whether for users or for his own team.",
+ "quote.role":"Managed Marco directly · Senior Product Designer (translated)",
+ "recs.eyebrow":"Recommendations · LinkedIn","recs.title":"What colleagues <span class=\"dim\">say.</span>","recs.lead":"Excerpts from recommendations on my profile, translated from Portuguese.","recs.link":"See all on LinkedIn ↗",
+ "recs.mk":"I had the chance to work with Marco on a few projects at Luby Software. He is very dedicated, studious, and wins people over with his charisma and collaboration.","recs.mkRole":"Colleague at Luby",
+ "recs.af":"Talking about Marco and the time we worked together brings me a lot of clarity. It's very hard to imagine a setting he works in where the team doesn't get involved and stay engaged.","recs.afRole":"Managed Marco directly",
+ "faq.eyebrow":"FAQ","faq.title":"Before <span class=\"dim\">we talk.</span>",
+ "faq.q1":"Where do you work today?","faq.a1":"I'm a UX/UI designer at Luby, based in Belo Horizonte, Brazil. Outside of it, I'm happy to talk about short projects and UX mentoring.",
+ "faq.q2":"How much does a project cost?","faq.a2":"It depends on scope. After a 30-minute call, I send a proposal with phases, timeline and a fixed price.",
+ "faq.q3":"Do you do research or just UI?","faq.a3":"The whole process: research, flows, interface, usability testing and follow-up during implementation.",
+ "faq.q4":"Can you work with our existing design system?","faq.a4":"Yes. In most projects I extend the existing system instead of creating a new one, and I document new components.",
+ "faq.q5":"Do you mentor?","faq.a5":"Yes. I was a tutor at Camp ioasys, and I support designers from their first studies to their first job.",
+ "contact.title":"Got a complicated product? Let's simplify it.","contact.text":"Tell me in a few lines what your team is building. I reply within two business days with times for a 30-minute call.",
+ "contact.copy":"Copy e-mail","contact.copied":"Copied","contact.selected":"Selected, press Ctrl+C",
+ "foot.where":"UX/UI designer · Belo Horizonte, Brazil,","foot.top":"Back to top ↑",
+ "foot.note":"The Veres case study is in progress and will be added soon.",
+ "case.back":"← All work","case.problem":"The problem","case.research":"What research showed","case.decisions":"Design decisions","case.flow":"The flow, before and after","case.before":"Before","case.after":"After","case.results":"Results","case.voice":"In the users' words","case.learn":"What I'd do differently","case.next":"Next case study →","case.img":"Project screen","case.process":"How I worked","case.gallery":"Before and after","case.board":"Research board","case.ds":"Design system in Storybook","case.final":"Final result","case.zoom":"Click to view full size."
+}};
+
+// ---------- experiência (dados verificáveis do LinkedIn) ----------
+var JOBS=[
+ {org:"Luby",mark:"L",glow:"#141937",now:true,
+  pt:{when:"Atual",role:"UX/UI Designer",desc:"Projetos de produto digital para clientes da Luby, da pesquisa com usuários aos fluxos, interface e protótipos no Figma.",tags:["Pesquisa","UX/UI","Figma","Prototipação"]},
+  en:{when:"Current",role:"UX/UI Designer",desc:"Digital product projects for Luby's clients, from user research to flows, UI and Figma prototypes.",tags:["Research","UX/UI","Figma","Prototyping"]}},
+ {org:"ioasys",mark:"io",glow:"#2C1848",
+  pt:{when:"nov 2021 – jan 2022",role:"Tutor voluntário · Camp ioasys",desc:"Mentoria e tutoria de participantes da trilha de UX/UI do Camp ioasys 2022.",tags:["Mentoria","UX/UI"]},
+  en:{when:"Nov 2021 – Jan 2022",role:"Volunteer tutor · Camp ioasys",desc:"Mentored and tutored participants in the UX/UI track of Camp ioasys 2022.",tags:["Mentoring","UX/UI"]}}
+];
+var EDU={
+ pt:{school:"Centro Universitário de Tecnologia de Curitiba (UNIFATEC)",when:"abr 2023 – nov 2024",note:"Em parceria com a Toronto School of Management",
+  certs:[["Formação em UX, UI e Product Design","UX Unicórnio · jan 2021"],["Camp ioasys, trilha de UX/UI (fases 1 e 2)","ioasys · abr e jun 2021"],["Aceleração Global Designer #1","Inter · jun 2021"],["Observe 2021, conferência de UX Research","Even3 · out 2021"],["DEXCONF22","Mergo User Experience · set 2022"]],
+  langs:[["Português","Nativo"],["Inglês","Intermediário"]]},
+ en:{school:"Centro Universitário de Tecnologia de Curitiba (UNIFATEC)",when:"Apr 2023 – Nov 2024",note:"In partnership with Toronto School of Management",
+  certs:[["UX, UI and Product Design program","UX Unicórnio · Jan 2021"],["Camp ioasys, UX/UI track (phases 1 and 2)","ioasys · Apr and Jun 2021"],["Global Designer Acceleration #1","Inter · Jun 2021"],["Observe 2021, UX Research conference","Even3 · Oct 2021"],["DEXCONF22","Mergo User Experience · Sep 2022"]],
+  langs:[["Portuguese","Native"],["English","Intermediate"]]}
+};
+
+// ---------- cases (exemplos) ----------
+var P=[
+{slug:"multiplik",title:"Multiplik",year:"",img:"assets/capa-multiplik.png",glow:"#2C1848",
+ board:{src:"assets/multiplik-pesquisa.png",w:1286,h:543},
+ final:{src:"assets/multiplik-final.webp",w:2000,h:1062},
+ gallery:[{src:"assets/multiplik-home.png",w:1392,h:1244},{src:"assets/multiplik-carteira.png",w:1392,h:1244}],
+ pt:{sector:"Varejo",one:"Carteira digital e incentivo de vendas para vendedores do varejo, redesenhada a partir do que eles contaram.",
+  summary:"O Multiplik é um app de carteira digital e incentivo de vendas para vendedores de lojas de varejo. O vendedor lê o selo dos produtos que vende, acumula prêmios e resgata o saldo. Redesenhei a experiência a partir de dados do app, análises e entrevistas com vendedores.",
+  facts:[["Papel","UX/UI designer"],["Produto","Carteira digital e incentivo de vendas"],["Público","Vendedores de lojas de varejo"],["Plataforma","App mobile"]],
+  tags:["Varejo","Carteira digital","Pesquisa","Mobile"],metrics:[],
+  process:[["Dados do app","Levantei como o aplicativo era usado hoje."],["Pontos de dor","Mapeei onde os vendedores travavam ao usar o app."],["Análise heurística","Avaliei as telas com as heurísticas de usabilidade."],["Concorrentes","Analisei produtos parecidos e o que ajudava as pessoas a concluir as tarefas."],["Entrevistas","Conversei com vendedores para entender a maior dor de cada um."],["Síntese e decisões","Condensei os dados e decidi as melhorias na experiência dos vendedores."]],
+  board:"Objetivo inicial, benchmark de concorrentes e o roteiro da entrevista com vendedores, dividido em abertura, contexto de trabalho no ponto de venda, processo de vendas e metas, uso do Multiplik e encerramento.",
+  final:"Da esquerda para a direita: home com os prêmios ativos, desafio da nota fiscal, dados do vendedor com progresso e comparação com o líder, login, carteira com extrato e leitura de selos pela câmera.",
+  gallery:["Home, antes e depois.","Antes, a tela de ranking. Depois, a carteira com saldo e extrato."],
+  decisions:[["Saldo em primeiro lugar","O saldo, que ficava pequeno ao lado do nome, virou o primeiro bloco da home, com atalho para a carteira."],["Campanhas viram prêmios","No lugar do card de campanhas, a home lista os prêmios ativos com valor, prazo restante e um botão para conferir cada um."],["Leitura de selo no centro","A leitura de selo virou o botão principal da barra inferior, em destaque. A barra ficou com Home, Meus selos, Ler selo, Carteira e Suporte."],["Carteira com extrato","A carteira mostra o saldo, atalhos para resgatar, chave Pix e pendências, e um extrato por dia com busca e filtro. Entradas, resgates e valores expirados têm cores diferentes."]]},
+ en:{sector:"Retail",one:"A digital wallet and sales incentive app for retail salespeople, redesigned from what they told me.",
+  summary:"Multiplik is a digital wallet and sales incentive app for salespeople in retail stores. Salespeople scan the seal on the products they sell, earn rewards and cash out their balance. I redesigned the experience based on app data, analysis and interviews with salespeople.",
+  facts:[["Role","UX/UI designer"],["Product","Digital wallet and sales incentives"],["Audience","Retail store salespeople"],["Platform","Mobile app"]],
+  tags:["Retail","Digital wallet","Research","Mobile"],metrics:[],
+  process:[["App data","I gathered how the app was being used today."],["Pain points","I mapped where salespeople got stuck using the app."],["Heuristic review","I evaluated the screens against usability heuristics."],["Competitors","I analyzed similar products and what helped people complete their tasks."],["Interviews","I talked to salespeople to understand their biggest pain."],["Synthesis and decisions","I condensed the data and decided on improvements to the salespeople's experience."]],
+  board:"Initial goal, competitor benchmark and the interview script for salespeople, split into opening, work context at the point of sale, sales process and targets, use of Multiplik, and closing.",
+  final:"From left to right: home with active rewards, invoice challenge, salesperson stats with progress and comparison to the leader, login, wallet with statement, and seal scanning with the camera.",
+  gallery:["Home, before and after.","Before, the ranking screen. After, the wallet with balance and statement."],
+  decisions:[["Balance first","The balance, once small next to the name, became the first block on the home screen, with a shortcut to the wallet."],["Campaigns become rewards","Instead of the campaigns card, the home lists active rewards with value, time left and a button to check each one."],["Seal scanning at the center","Scanning a seal became the main, highlighted button in the bottom bar. The bar now has Home, My seals, Scan seal, Wallet and Support."],["Wallet with statement","The wallet shows the balance, shortcuts to cash out, Pix key and pending items, and a daily statement with search and filter. Income, cash-outs and expired amounts use different colors."]]}},
+{slug:"siconfix",title:"SICONFIX",year:"",img:"assets/capa-siconfix.png",glow:"#141937",
+ final:{src:"assets/siconfix-telas.webp",w:2000,h:864},
+ ds:{src:"assets/siconfix-ds.png",w:1882,h:913},
+ pt:{sector:"Setor público",one:"Verificador que confere os dados do município com as regras do Tesouro Nacional antes do envio ao Siconfi.",
+  summary:"O SICONFIX, da GFI Tech, verifica os dados contábeis e fiscais do município junto às regras do Tesouro Nacional antes do envio ao Siconfi. Com isso, protege a CAPAG e ajuda a melhorar a nota do município no Ranking da Qualidade da Informação Contábil e Fiscal.",
+  facts:[["Papel","UX/UI designer"],["Empresa","GFI Tech"],["Público","Servidores e contadores municipais"],["Plataforma","Web"]],
+  tags:["Setor público","SaaS","Design system","IA"],metrics:[["190+","validações do Tesouro conferidas automaticamente"],["R$ 2,13 mi","economia estimada por ano em Betim"]],
+  problem:["Hoje os servidores públicos fazem toda essa verificação à mão. São mais de 190 validações do Tesouro Nacional, 4 arquivos que compõem a nota e mais de 10 mil linhas para conferir. Nessa escala, erros humanos são inevitáveis e, quando passam despercebidos, afetam diretamente a arrecadação do município.","O que está em jogo é a CAPAG. Com a nota bem avaliada, o município acessa crédito subsidiado, perto de 10% ao ano. Sem ela, sobra o crédito comercial, perto de 16,5% ao ano. Dados enviados com erro também atrasam o Siconfi e o SIOPE, deixam o CAUC pendente e travam repasses."],
+  process:[["Experiência e interface","Desenhei a experiência e as telas do verificador como UX/UI designer."],["Front-end com IA","Usei IA para construir o front-end do produto."],["Design system","Configurei o design system para acelerar a produção das funcionalidades junto com os devs."]],
+  decisions:[["Diagnóstico em números","A tela abre com o total de verificações e quantas estão OK, divergentes ou em alerta, antes de qualquer detalhe."],["Filtros que acompanham o trabalho","Filtros por demonstrativo (D1 a D4 e EX), abas por status e busca por código deixam o servidor ir direto ao que precisa corrigir."],["Cada divergência explicada","Cada item mostra o código, o status e o que está errado em linguagem simples, com link para a regra que gerou a divergência."],["Envio guiado de arquivos","Um painel lateral pede o período de referência e os arquivos (MSC, MSC do mês anterior, RREO) e mostra qual verificação cada arquivo habilita."],["Relatório pronto para circular","O diagnóstico pode ser compartilhado ou baixado em PDF para a equipe da Fazenda e o contador."]],
+  results:[["190+","validações do Tesouro Nacional conferidas automaticamente, em 4 arquivos e mais de 10 mil linhas"],["R$ 2,13 mi","de economia estimada por ano em Betim, num empréstimo de R$ 250 milhões contratado com a CAPAG em dia"],["~9×","é quanto essa economia cobre o custo anual estimado do SICONFIX para um município do porte de Betim (R$ 240 mil)"]],
+  ds:"O design system documentado no Storybook, com fundações (cores, tipografia, raio e sombra, ícones) e componentes (feedback, dados, botões, formulário, sobreposição e navegação). Na página do botão, as 384 variantes se controlam por tipo (primary, neutral, error), estilo (filled, stroke, lighter, ghost), tamanho e ícones, com temas claro, azul e cinza.",
+  final:"Da esquerda para a direita: a tela inicial explica o uso do verificador em três passos, o painel lateral recebe o período e os arquivos (MSC, RREO, RGF e DCA) e o diagnóstico lista cada verificação com status e explicação.",
+  resultsNote:"Números do pitch da GFI Tech. A economia é uma simulação a partir da taxa contratada (110,63% do CDI, cerca de 15,65% ao ano) comparada ao crédito comercial (cerca de 16,5% ao ano)."},
+ en:{sector:"Public sector",one:"A checker that validates a city's data against National Treasury rules before it's submitted to Siconfi.",
+  summary:"SICONFIX, by GFI Tech, checks a city's accounting and fiscal data against National Treasury rules before it's submitted to Siconfi. This protects the city's CAPAG credit rating and helps raise its score in the Treasury's ranking of accounting and fiscal information quality.",
+  facts:[["Role","UX/UI designer"],["Company","GFI Tech"],["Audience","City public servants and accountants"],["Platform","Web"]],
+  tags:["Public sector","SaaS","Design system","AI"],metrics:[["190+","Treasury validations checked automatically"],["R$ 2.13M","estimated yearly savings in Betim"]],
+  problem:["Today, public servants do all of this checking by hand. There are more than 190 National Treasury validations, 4 files that make up the score and over 10,000 lines to review. At that scale, human errors are unavoidable, and when they go unnoticed they directly hurt the city's revenue.","What's at stake is the CAPAG rating. With a good rating, the city gets subsidized credit at around 10% a year. Without it, only commercial credit is left, at around 16.5% a year. Data submitted with errors also delays Siconfi and SIOPE, leaves the CAUC registry pending and blocks federal transfers."],
+  process:[["Experience and UI","I designed the checker's experience and screens as the UX/UI designer."],["AI-built front end","I used AI to build the product's front end."],["Design system","I set up the design system to speed up building features with the developers."]],
+  decisions:[["Diagnosis in numbers","The screen opens with the total number of checks and how many are OK, divergent or flagged, before any detail."],["Filters that follow the work","Filters by report (D1 to D4 and EX), status tabs and search by code let public servants go straight to what they need to fix."],["Every divergence explained","Each item shows the code, the status and what's wrong in plain language, with a link to the rule behind it."],["Guided file upload","A side panel asks for the reference period and the files (MSC, previous month's MSC, RREO) and shows which check each file enables."],["A report ready to share","The diagnosis can be shared or downloaded as a PDF for the finance team and the accountant."]],
+  results:[["190+","National Treasury validations checked automatically, across 4 files and over 10,000 lines"],["R$ 2.13M","in estimated yearly savings in Betim, on a R$ 250 million loan taken with the CAPAG rating in good standing"],["~9×","how many times those savings cover SICONFIX's estimated yearly cost for a city of Betim's size (R$ 240k)"]],
+  ds:"The design system documented in Storybook, with foundations (colors, typography, radius and shadow, icons) and components (feedback, data, buttons, forms, overlays and navigation). On the button page, its 384 variants are controlled by type (primary, neutral, error), style (filled, stroke, lighter, ghost), size and icons, with light, blue and gray themes.",
+  final:"From left to right: the start screen explains how to use the checker in three steps, the side panel takes the period and the files (MSC, RREO, RGF and DCA), and the diagnosis lists each check with its status and explanation.",
+  resultsNote:"Figures from GFI Tech's pitch. The savings are a simulation based on the contracted rate (110.63% of CDI, about 15.65% a year) compared with commercial credit (about 16.5% a year)."}},
+{slug:"veres",title:"Veres",year:"",img:"assets/capa-veres.png",glow:"#19281F",soon:true,
+ pt:{sector:"Investimentos",one:"App de carteira de investimentos. Atuei como UX/UI designer, usando IA no processo. O case está em construção.",tags:["Investimentos","Mobile","IA"]},
+ en:{sector:"Investments",one:"An investment portfolio app. I worked as the UX/UI designer, using AI in the process. The case study is in progress.",tags:["Investments","Mobile","AI"]}}
+];
+
+var lang='pt';
+function t(k){return (T[lang]&&T[lang][k])||T.pt[k]||k}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})}
+
+// telas desenhadas usadas no leque do hero
+var MK={
+phone:function(){
+ function row(c,a,b,v){return '<div class="ph-row"><i style="background:'+c+'"></i><div><b>'+a+'</b><small>'+b+'</small></div><em>'+v+'</em></div>'}
+ return '<div class="mk mk-phone"><div class="scr"><div class="ph-top"><b>vértice</b><span class="ph-av">RA</span></div><small>Saldo disponível</small><div class="ph-bal">R$ 48.210<span>,90</span></div><div class="ph-act"><span>Pix</span><span class="on">Agendar</span><span>Boletos</span></div><small>Próximos vencimentos</small>'+
+ row('#FFB020','Aluguel do galpão','vence 10/10 · agendado','3.200,00')+row('#2E3BFF','Fornecedor Alfa','vence 12/10 · aguarda sócio','8.940,00')+row('#17A865','Energia','vence 15/10 · agendado','1.118,40')+row('#E4572E','Internet','vence 20/10','249,90')+
+ '</div></div><div class="mk mk-toast"><span class="ok">✓</span><div><b>Pix agendado</b><small>Débito em 09/10, um dia antes</small></div></div>'},
+dashboard:function(){
+ function col(n,bl){return '<div class="col"><small>'+n+'</small>'+bl.map(function(b){return '<i class="bk '+b[0]+'" style="height:'+b[1]+'cqw">'+b[2]+'</i>'}).join('')+'</div>'}
+ return '<div class="mk mk-win"><div class="win-bar"><i></i><i></i><i></i><span>lume.app/agenda</span></div><div class="win-body"><aside><b>lume</b><span class="on">Agenda</span><span>Pacientes</span><span>Confirmações</span><span>Financeiro</span><span>Relatórios</span></aside><div class="cal"><div class="cal-head"><b>Dermatologia · qui, 16 out</b><span class="kbd">derm qui tarde|</span></div><div class="cal-cols">'+
+ col('Dra. Paula',[['a',9,'13:00 Retorno'],['b',6,'13:45'],['free',6,'14:30 livre'],['c',11,'15:00 Procedimento']])+
+ col('Dr. Hugo',[['c',11,'13:00 Primeira consulta'],['a',8,'14:00 Retorno'],['',6,'14:45'],['b',9,'15:30']])+
+ col('Dra. Nara',[['b',6,'13:00'],['a',13,'13:30 Procedimento'],['',6,'15:00'],['a',8,'15:30 Retorno']])+
+ '</div></div></div></div>'},
+checkout:function(){return '<div class="mk mk-co" style="--i:0"><span class="st"><i>1</i>Carrinho</span><b>14 itens</b>'+
+ '<div class="co-row"><i style="background:#FFE08A"></i><span>Banana prata 1 kg</span><em>6,90</em></div><div class="co-row"><i style="background:#FFC2B0"></i><span>Café torrado 500 g</span><em>24,50</em></div><div class="co-row"><i style="background:#C9E7C4"></i><span>Alface crespa</span><em>3,99</em></div><div class="co-tot"><span>Total</span><span>R$ 187,40</span></div></div>'+
+ '<div class="mk mk-co" style="--i:1"><span class="st"><i>2</i>Entrega</span><b>Hoje, 20h–22h</b><div class="slots"><span>18h–20h</span><span class="on">20h–22h</span><span>Amanhã 8h</span><span>Amanhã 10h</span></div><small>Rua das Mangueiras, 45</small></div>'+
+ '<div class="mk mk-co" style="--i:2"><span class="st"><i>3</i>Pagamento</span><b>R$ 187,40</b><div class="pay on"><span>Pix</span><span style="color:#6B4FD8">●</span></div><div class="pay"><span>Cartão final 4021</span><span style="color:#9AA0A8">○</span></div><div class="co-btn">Finalizar pedido</div></div>'}
+};
+function paint(root){(root||document).querySelectorAll('[data-cover]').forEach(function(el){if(!el.dataset.done){el.innerHTML=MK[el.dataset.cover]();el.dataset.done="1"}})}
+function roll(s){return '<span class="roll"><span>'+s+'</span><span aria-hidden="true">'+s+'</span></span>'}
+function tagList(tags){return '<ul class="tags">'+tags.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'}
+
+function renderStack(){
+ document.getElementById('stack').innerHTML=P.map(function(p,i){
+  var c=p[lang];
+  if(p.soon){return '<article class="proj soon" style="--n:'+i+';--glow:'+p.glow+'">'+
+  '<div class="proj-txt"><div class="proj-meta mono"><span>Case 0'+(i+1)+'</span><span>'+esc(c.sector)+'</span></div>'+
+  '<h3>'+esc(p.title)+'</h3><p class="one">'+esc(c.one)+'</p>'+tagList(c.tags)+
+  '<div><span class="soon-tag"><i></i>'+esc(t('proj.soon'))+'</span></div></div>'+
+  '<div class="proj-cover"><img src="'+p.img+'" alt="" width="691" height="434" loading="lazy"><span class="soon-over">'+esc(t('proj.soon'))+'</span></div></article>';}
+  return '<article class="proj" style="--n:'+i+';--glow:'+p.glow+'">'+
+  '<div class="proj-txt"><div class="proj-meta mono"><span>Case 0'+(i+1)+'</span><span>'+(p.year?p.year+' · ':'')+esc(c.sector)+'</span></div>'+
+  '<h3>'+esc(p.title)+'</h3><p class="one">'+esc(c.one)+'</p>'+tagList(c.tags)+
+  (c.metrics&&c.metrics.length?'<div class="metrics">'+c.metrics.map(function(m){return '<div><b>'+m[0]+'</b><span>'+esc(m[1])+'</span></div>'}).join('')+'</div>':'')+
+  '<div><a class="btn btn-primary" href="#'+p.slug+'">'+roll(esc(t('proj.view')))+'<span class="arrow">↗</span></a></div></div>'+
+  '<a class="proj-cover" href="#'+p.slug+'" tabindex="-1" aria-hidden="true"><img src="'+p.img+'" alt="" width="691" height="434" loading="lazy"></a></article>';
+ }).join('');
+}
+
+function renderExp(){
+ document.getElementById('jobs').innerHTML=JOBS.map(function(j){
+  var c=j[lang];
+  return '<li class="job rv"><span class="when mono">'+(j.now?'<span class="now"><i></i>'+esc(c.when)+'</span>':esc(c.when))+'</span>'+
+  '<div><h3>'+esc(j.org)+'</h3><p class="role">'+esc(c.role)+'</p><p class="desc">'+esc(c.desc)+'</p>'+tagList(c.tags)+'</div>'+
+  '<span class="logo" style="--glow:'+j.glow+'" aria-hidden="true">'+esc(j.mark)+'</span></li>';
+ }).join('');
+ var e=EDU[lang];
+ document.getElementById('edu').innerHTML=
+  '<div class="edu-card rv"><span class="mono">'+esc(t('exp.edu'))+'</span><b>'+esc(e.school)+'</b><span class="muted">'+esc(e.when)+'</span><span class="muted">'+esc(e.note)+'</span></div>'+
+  '<div class="edu-card rv"><span class="mono">'+esc(t('exp.certs'))+'</span><ul class="certs">'+e.certs.map(function(x){return '<li><b>'+esc(x[0])+'</b><span class="muted">'+esc(x[1])+'</span></li>'}).join('')+'</ul></div>'+
+  '<div class="edu-card rv"><span class="mono">'+esc(t('exp.langs'))+'</span><ul class="certs">'+e.langs.map(function(x){return '<li><b>'+esc(x[0])+'</b><span class="muted">'+esc(x[1])+'</span></li>'}).join('')+'</ul></div>';
+}
+
+function renderCase(i){
+ var p=P[i], c=p[lang], j=(i+1)%P.length; while(P[j].soon){j=(j+1)%P.length} var nx=P[j], nc=nx[lang];
+ var sec=function(k,body){return '<section class="csec"><h2>'+esc(t(k))+'</h2><div class="cbody">'+body+'</div></section>'};
+ var chips=function(arr){return arr.map(esc).map(function(x){return '<span>'+x+'</span>'}).join('<em>→</em>')};
+ return '<article class="case" style="--glow:'+p.glow+'">'+
+ '<a class="back" href="#projetos">'+esc(t('case.back'))+'</a>'+
+ '<header class="case-head"><span class="mono ld" style="--d:0">Case 0'+(i+1)+' · '+(p.year?p.year+' · ':'')+esc(c.sector)+'</span><h1 class="ld" style="--d:1">'+esc(p.title)+'</h1><p class="summary ld" style="--d:2">'+esc(c.summary)+'</p><div class="ld" style="--d:3">'+tagList(c.tags)+'</div></header>'+
+ '<dl class="facts ld" style="--d:3">'+c.facts.map(function(f){return '<div><dt class="mono">'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'}).join('')+'</dl>'+
+ '<div class="case-cover ld" style="--d:4"><img src="'+p.img+'" alt="'+esc(t('case.img'))+' '+esc(p.title)+'" width="691" height="434"></div>'+
+ (c.problem?sec('case.problem',c.problem.map(function(x){return '<p>'+esc(x)+'</p>'}).join('')):'')+
+ (c.process?'<section class="csec"><h2>'+esc(t('case.process'))+'</h2><ol class="psteps">'+c.process.map(function(x){return '<li class="rv"><div><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div></li>'}).join('')+'</ol></section>':'')+
+ (p.ds?'<section class="shots"><h2>'+esc(t('case.ds'))+'</h2><figure class="rv"><a class="shot" href="'+p.ds.src+'" target="_blank" rel="noopener"><img src="'+p.ds.src+'" alt="'+esc(c.ds)+'" width="'+p.ds.w+'" height="'+p.ds.h+'" loading="lazy"></a><figcaption>'+esc(c.ds)+' <span class="hint">'+esc(t('case.zoom'))+'</span></figcaption></figure></section>':'')+
+ (p.board?'<section class="shots"><h2>'+esc(t('case.board'))+'</h2><figure class="rv"><a class="shot" href="'+p.board.src+'" target="_blank" rel="noopener"><img src="'+p.board.src+'" alt="'+esc(c.board)+'" width="'+p.board.w+'" height="'+p.board.h+'" loading="lazy"></a><figcaption>'+esc(c.board)+' <span class="hint">'+esc(t('case.zoom'))+'</span></figcaption></figure></section>':'')+
+ (c.research?sec('case.research','<p>'+esc(c.research)+'</p><ul class="insights">'+c.insights.map(function(x){return '<li class="rv">'+esc(x)+'</li>'}).join('')+'</ul>'):'')+
+ (p.gallery?'<section class="shots"><h2>'+esc(t('case.gallery'))+'</h2><div class="shots-grid">'+p.gallery.map(function(g,k){return '<figure class="rv"><a class="shot" href="'+g.src+'" target="_blank" rel="noopener"><img src="'+g.src+'" alt="'+esc(c.gallery[k])+'" width="'+g.w+'" height="'+g.h+'" loading="lazy"></a><figcaption>'+esc(c.gallery[k])+'</figcaption></figure>'}).join('')+'</div></section>':'')+
+ (c.decisions?sec('case.decisions','<div class="decisions">'+c.decisions.map(function(d,k){return '<div class="dec rv"><span class="mono">D'+(k+1)+'</span><div><b>'+esc(d[0])+'</b><p>'+esc(d[1])+'</p></div></div>'}).join('')+'</div>'):'')+
+ (p.final?'<section class="shots"><h2>'+esc(t('case.final'))+'</h2><figure class="rv"><a class="shot" href="'+p.final.src+'" target="_blank" rel="noopener"><img src="'+p.final.src+'" alt="'+esc(c.final)+'" width="'+p.final.w+'" height="'+p.final.h+'" loading="lazy"></a><figcaption>'+esc(c.final)+' <span class="hint">'+esc(t('case.zoom'))+'</span></figcaption></figure></section>':'')+
+ (c.before?sec('case.flow','<div class="flow rv"><div class="flow-row"><span class="mono">'+esc(t('case.before'))+' · '+c.before.length+'</span><div class="chips">'+chips(c.before)+'</div></div><div class="flow-row"><span class="mono">'+esc(t('case.after'))+' · '+c.after.length+'</span><div class="chips after">'+chips(c.after)+'</div></div></div>'):'')+
+ (c.results?'<section class="csec"><h2>'+esc(t('case.results'))+'</h2><div class="cbody wide"><div class="results">'+c.results.map(function(r){return '<div class="res rv"><b>'+esc(r[0])+'</b><span>'+esc(r[1])+'</span></div>'}).join('')+'</div>'+(c.resultsNote?'<p class="rnote">'+esc(c.resultsNote)+'</p>':'')+'</div></section>':'')+
+ (c.quote?sec('case.voice','<figure class="cquote rv"><p>“'+esc(c.quote[0])+'”</p><cite>'+esc(c.quote[1])+'</cite></figure>'):'')+
+ (c.learning?sec('case.learn','<p>'+esc(c.learning)+'</p>'):'')+
+ '<a class="next rv" href="#'+nx.slug+'" style="--glow:'+nx.glow+'"><div><span class="mono">'+esc(t('case.next'))+'</span><h3>'+esc(nx.title)+'</h3><p>'+esc(nc.one)+'</p></div><img src="'+nx.img+'" alt="" width="691" height="434" loading="lazy"></a>'+
+ '</article>';
+}
+
+var home=document.getElementById('home'), cv=document.getElementById('caseView');
+var current=-1;
+function route(){
+ var h=location.hash.slice(1), idx=-1;
+ P.forEach(function(p,i){if(p.slug===h&&!p.soon)idx=i});
+ current=idx;
+ if(idx>-1){
+  cv.innerHTML=renderCase(idx);
+  home.hidden=true; cv.hidden=false;
+  document.title=P[idx].title+' · Marco Lima';
+  window.scrollTo(0,0);
+ }else{
+  var wasCase=!cv.hidden;
+  cv.hidden=true; cv.innerHTML=''; home.hidden=false; document.title=t('doc.title');
+  if(wasCase){var el=h&&document.getElementById(h); if(el){el.scrollIntoView()}else{window.scrollTo(0,0)}}
+ }
+}
+
+// ---------- troca de idioma ----------
+function setLang(l,save){
+ lang=(l==='en')?'en':'pt';
+ document.documentElement.lang=lang==='en'?'en':'pt-BR';
+ document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=t(el.getAttribute('data-i18n'))});
+ document.querySelectorAll('[data-i18n-html]').forEach(function(el){el.innerHTML=t(el.getAttribute('data-i18n-html'))});
+ document.querySelectorAll('[data-i18n-aria]').forEach(function(el){el.setAttribute('aria-label',t(el.getAttribute('data-i18n-aria')))});
+ document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===lang))});
+ mb.textContent=mp.hidden?t('menu.open'):t('menu.close');
+ renderStack(); renderExp();
+ if(current>-1){cv.innerHTML=renderCase(current);document.title=P[current].title+' · Marco Lima'}else{document.title=t('doc.title')}
+ if(save){try{localStorage.setItem('portfolio-lang',lang)}catch(e){}}
+}
+
+var mb=document.getElementById('menuBtn'), mp=document.getElementById('menuPanel');
+mb.addEventListener('click',function(){var o=mp.hidden;mp.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.textContent=o?t('menu.close'):t('menu.open')});
+mp.addEventListener('click',function(e){if(e.target.closest('a')){mp.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent=t('menu.open')}});
+document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
+
+var start='pt';
+try{var saved=localStorage.getItem('portfolio-lang'); if(saved){start=saved}else if((navigator.language||'').toLowerCase().indexOf('en')===0){start='en'}}catch(e){}
+window.addEventListener('hashchange',route);
+paint(document);
+setLang(start,false);
+route();
+
+// copiar e-mail
+var cb=document.getElementById('copyBtn'), mail=document.getElementById('mail');
+cb.addEventListener('click',function(){
+ function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent=t('contact.selected')}
+ try{navigator.clipboard.writeText(mail.textContent).then(function(){cb.textContent=t('contact.copied')},sel)}catch(e){sel()}
+ setTimeout(function(){cb.textContent=t('contact.copy')},2400);
+});
+
+// relógio local
+function tick(){try{document.getElementById('clock').textContent=new Date().toLocaleTimeString(lang==='en'?'en-US':'pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit'})}catch(e){}}
+tick(); setInterval(tick,30000);
+})();
+</script>
+
+</body>
+</html>
